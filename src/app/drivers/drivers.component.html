@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="driver-container">
+    <h1 class="driver-title">Driver Standings in</h1>
+    <span class="custom-dropdown">
+   <select (change)="onChangeYear($event.target.value)">
+      <option *ngFor="let i of seasonYears">{{i.season}}</option>
+   </select>
+  </span></div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Position</th>
+      <th>Driver</th>
+      <th>Code</th>
+      <th>Points</th>
+      <th>Wins</th>
+      <th>Nationality</th>
+      <th>Constructor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of driversData">
+      <td>{{row.position}}</td>
+      <td><a [href]="row.Driver.url">{{ row.Driver.givenName }} {{ row.Driver.familyName }}</a></td>
+      <td>{{row.Driver.code}}</td>
+      <td>{{row.points}}</td>
+      <td>{{row.wins}}</td>
+      <td>{{row.Driver.nationality}}</td>
+      <td>
+        <ul [ngStyle]="{'list-style-type': 'none', 'padding': '0'}">
+          <li *ngFor="let consructor of row.Constructors"><a [href]="consructor.url">{{consructor.name}}</a></li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="driver-chart"><chart [options]="options" class="driver-chart"></chart></div>
+</div>

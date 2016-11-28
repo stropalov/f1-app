@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="sidebar">
+    <div class="title">ng2 F1 App</div>
+    <ul class="nav">
+      <!--<li>
+        <a [class.active]="router.url === '/'"  [routerLink]=" ['./'] " >Dashboard</a>
+      </li>-->
+      <li>
+        <a [routerLinkActive]="['active']" [routerLink]=" ['./constructors'] " >Constructor Standings</a>
+      </li>
+      <li>
+        <a [routerLinkActive]="['active']" [routerLink]=" ['./drivers'] " >Driver Standings</a>
+      </li>
+      <li>
+        <a [routerLinkActive]="['active']" [routerLink]=" ['./about'] " >About</a>
+      </li>
+    </ul>
+  </div>
+  <div class="content " [class.content-is-open]="contentIsOpen">
+    <span class='side-panel-toggle' (click)="contentIsOpen = !contentIsOpen;">
+      <i class="fa fa-bars"></i>
+    </span>
+    <router-outlet></router-outlet>
+  </div>
+</div>
